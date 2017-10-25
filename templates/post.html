@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h2><strong>{{blog.title}}</strong></h2>
+
+    <p>{{blog.body}}</p>
+    <h5>Written By:<a href="/blog?user={{blog.writer_id}}">{{blog.writer.email}}</a></h5>
+   
+{% endblock %}   

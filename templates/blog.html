@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+    
+
+    
+        <h2>All Blogs</h2>
+        
+        
+        {%if blogs|length == 0%}
+        <p>No Blogs yet</p>
+
+        {%else%}
+        <ul>
+          {% for blog in blogs %}
+        
+      
+            <!--<span action="POST" method="post" value={{blog.id}}>-->
+                <h2><a href="./blog?id={{blog.id}}"> {{blog.title}}</a></h2>
+                <h4>{{blog.body}}</h4></li></span>
+  
+            <!--<span action="POST" method="post" value={{user.id}}>-->
+                <h5>Written by: <a href="./blog?user={{blog.writer_id}}"> {{blog.writer.email}} </a></h5></li>
+                
+            </form>
+        
+          {% endfor %}
+        {% endif %}
+        </ul>
+            
+        
+{% endblock %}
+
+
