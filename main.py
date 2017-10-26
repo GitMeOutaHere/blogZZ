@@ -5,9 +5,9 @@ from app import db, app
 
 @app.before_request
 def require_login():
-    allowed_routes = ['index', 'display_blogs', 'login', 'logout', 'signup']
+    allowed_routes = ['index', 'display_blogs', 'login', 'signup']
     if request.endpoint not in allowed_routes and 'email' not in session:
-        return redirect ('/login')
+        return redirect ('/')
 
  
 @app.route('/login', methods = ['POST', 'GET'])
@@ -77,15 +77,13 @@ def is_email(string):
  
 
 
-@app.route('/logout', methods=['GET'])
+@app.route('/logout')
 def logout():
-    #if session:
-    if 'email' not in session:
+    if 'email' in session:
         del session['email']
-        return redirect('/blog')   
-    else:
-        return redirect('/')    
-
+        return redirect('/')   
+    elif 'email' not in session:
+        return redirect('/')
 
 
 @app.route('/blog', methods=['POST', 'GET'])

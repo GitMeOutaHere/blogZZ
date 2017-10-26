@@ -23,10 +23,9 @@
 
             
         </h3>
-        {% if 'email' in session %}
-            <h3 style="color:blue">Current User: {{session['email']}}</h3>
-
-        {% endif %}        
+        {%if 'email' in session %}
+        <h3 style="color:blue">Current User: {{session['email']}}</h3>
+        {% endif %}
         
         
         
