@@ -69,19 +69,22 @@ def is_email(string):
         
             
         
-                
-    
-
-    #return render_template('signup.html')   
+#@app.route('/logout')
+#def logout():
+#    del session['email']
+#    flash('Logged out')
+#    return redirect('/blog')                
+ 
 
 
 @app.route('/logout', methods=['GET'])
 def logout():
-    if session != 0:
+    #if session:
+    if 'email' not in session:
         del session['email']
-        return redirect('blog')   
+        return redirect('/blog')   
     else:
-        return redirect('/blog')    
+        return redirect('/')    
 
 
 
